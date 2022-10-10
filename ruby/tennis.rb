@@ -23,7 +23,7 @@ class TennisGame1
           1 => "Fifteen-All",
           2 => "Thirty-All",
       }.fetch(@p1points, "Deuce")
-    elsif (@p1points >= 4 or @p2points >= 4)
+    elsif (@p1points >= 4 || @p2points >= 4)
       points_difference = @p1points - @p2points
       if (points_difference == 1)
         result = "Advantage player1"
