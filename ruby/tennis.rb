@@ -26,7 +26,7 @@ class TennisGame1
       }.fetch(@p1points, "Deuce")
     elsif (@p1points >= 4 || @p2points >= 4)
       if (points_difference == 1)
-        result = "Advantage player1"
+        result = "Advantage #{@player1Name}"
       elsif (points_difference == -1)
         result = "Advantage player2"
       elsif (points_difference >= 2)
