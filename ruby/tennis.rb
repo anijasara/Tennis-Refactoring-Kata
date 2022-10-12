@@ -39,11 +39,12 @@ class TennisGame1
       [1, 2].each do |i|
         if (i == 1)
           tempScore = @p1points
+          result += from_points_to_score(tempScore)
         else
           result += "-"
           tempScore = @p2points
+          result += from_points_to_score(tempScore)
         end
-        result += from_points_to_score(tempScore)
       end
     end
     result
