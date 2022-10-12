@@ -43,15 +43,21 @@ class TennisGame1
           result += "-"
           tempScore = @p2points
         end
-        result += {
-            0 => "Love",
-            1 => "Fifteen",
-            2 => "Thirty",
-            3 => "Forty",
-        }[tempScore]
+        result += from_points_to_score(tempScore)
       end
     end
     result
+  end
+
+  private
+
+  def from_points_to_score(tempScore)
+    {
+      0 => "Love",
+      1 => "Fifteen",
+      2 => "Thirty",
+      3 => "Forty",
+    }[tempScore]
   end
 end
 
