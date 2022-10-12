@@ -40,7 +40,7 @@ class TennisGame1
         if (i == 1)
           tempScore = @p1points
         else
-          result+="-"
+          result += "-"
           tempScore = @p2points
         end
         result += {
