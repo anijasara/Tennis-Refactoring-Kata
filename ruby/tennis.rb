@@ -36,7 +36,7 @@ class TennisGame1
       end
     else
       result = ""
-      (1...3).each do |i|
+      (1..2).each do |i|
         if (i == 1)
           tempScore = @p1points
         else
