@@ -41,9 +41,7 @@ class TennisGame1
         2 => @p2points
       }
       [1, 2].each do |player|
-        if (player == 1)
-
-        elsif (player == 2)
+        if (player == 2)
           result += "-"
         end
         result += from_points_to_score(current_score[player])
