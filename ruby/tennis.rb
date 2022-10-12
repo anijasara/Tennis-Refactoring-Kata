@@ -39,7 +39,7 @@ class TennisGame1
       [1, 2].each do |i|
         if (i == 1)
           result += from_points_to_score(@p1points)
-        else
+        elsif (i == 2)
           result += "-"
           result += from_points_to_score(@p2points)
         end
