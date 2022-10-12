@@ -36,12 +36,16 @@ class TennisGame1
       end
     else
       result = ""
+      current_score = {
+        1 => @p1points,
+        2 => @p2points
+      }
       [1, 2].each do |player|
         if (player == 1)
-          result += from_points_to_score(@p1points)
+          result += from_points_to_score(current_score[1])
         elsif (player == 2)
           result += "-"
-          result += from_points_to_score(@p2points)
+          result += from_points_to_score(current_score[2])
         end
       end
     end
