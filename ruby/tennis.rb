@@ -35,7 +35,7 @@ class TennisGame1
         return "Win for #{@player2Name}"
       end
     else
-      result = from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
+      return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
     end
     result
   end
