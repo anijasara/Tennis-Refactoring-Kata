@@ -37,13 +37,13 @@ class TennisGame1
 
   private
 
-  def from_points_to_score(tempScore)
+  def from_points_to_score(score)
     {
       0 => "Love",
       1 => "Fifteen",
       2 => "Thirty",
       3 => "Forty",
-    }[tempScore]
+    }[score]
   end
 end
 
