@@ -35,12 +35,14 @@ class TennisGame1
         return advantage(player_with_advantage)
       end
 
-      player_with_win = if points_difference >= 2
-                          @player1Name
-                        else
-                          @player2Name
-                        end
-      return win(player_with_win) if win?
+      if win?
+        player_with_win = if points_difference >= 2
+                            @player1Name
+                          else
+                            @player2Name
+                          end
+        return win(player_with_win)
+      end
     else
       return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
     end
