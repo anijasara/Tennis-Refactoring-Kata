@@ -26,12 +26,14 @@ class TennisGame1
       }.fetch(@p1points, "Deuce")
       return result
     elsif @p1points >= 4 || @p2points >= 4
-      player_with_advantage = if points_difference == 1
-                                @player1Name
-                              elsif points_difference == -1
-                                @player2Name
-                              end
-      return advantage(player_with_advantage) if advantage?
+      if advantage?
+        player_with_advantage = if points_difference == 1
+                                  @player1Name
+                                elsif points_difference == -1
+                                  @player2Name
+                                end
+        return advantage(player_with_advantage)
+      end
 
       player_with_win = if points_difference >= 2
                           @player1Name
