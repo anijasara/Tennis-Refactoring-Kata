@@ -7,7 +7,7 @@ class TennisGame1
     @p1points = 0
     @p2points = 0
   end
-        
+
   def won_point(playerName)
     if playerName == "player1"
       @p1points += 1
@@ -15,7 +15,7 @@ class TennisGame1
       @p2points += 1
     end
   end
-  
+
   def score
     points_difference = @p1points - @p2points
     if points_difference == 0
@@ -26,8 +26,12 @@ class TennisGame1
       }.fetch(@p1points, "Deuce")
       return result
     elsif @p1points >= 4 || @p2points >= 4
-      return "Advantage #{@player1Name}" if points_difference == 1
-      return "Advantage #{@player2Name}" if points_difference == -1
+      if points_difference == 1
+        return advantage(@player1Name)
+      elsif points_difference == -1
+        return advantage(@player2Name)
+      end
+
       return "Win for #{@player1Name}" if points_difference >= 2
       return "Win for #{@player2Name}"
     else
@@ -45,6 +49,10 @@ class TennisGame1
       3 => "Forty",
     }[score]
   end
+
+  def advantage(player_name)
+    "Advantage #{player_name}"
+  end
 end
 
 class TennisGame2
@@ -54,7 +62,7 @@ class TennisGame2
     @p1points = 0
     @p2points = 0
   end
-      
+
   def won_point(playerName)
     if playerName == @player1Name
       p1Score()
@@ -80,7 +88,7 @@ class TennisGame2
     if (@p1points==@p2points and @p1points>2)
         result = "Deuce"
     end
-    
+
     p1res = ""
     p2res = ""
     if (@p1points > 0 and @p2points==0)
@@ -106,11 +114,11 @@ class TennisGame2
       if (@p2points==3)
         p2res = "Forty"
       end
-      
+
       p1res = "Love"
       result = p1res + "-" + p2res
     end
-    
+
     if (@p1points>@p2points and @p1points < 4)
       if (@p1points==2)
         p1res="Thirty"
@@ -171,7 +179,7 @@ class TennisGame2
   def p1Score
     @p1points +=1
   end
-  
+
   def p2Score
     @p2points +=1
   end
@@ -184,7 +192,7 @@ class TennisGame3
     @p1 = 0
     @p2 = 0
   end
-      
+
   def won_point(n)
     if n == @p1N
         @p1 += 1
@@ -192,7 +200,7 @@ class TennisGame3
         @p2 += 1
     end
   end
-  
+
   def score
     if (@p1 < 4 and @p2 < 4) and (@p1 + @p2 < 6)
       p = ["Love", "Fifteen", "Thirty", "Forty"]
