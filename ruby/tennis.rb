@@ -31,10 +31,14 @@ class TennisGame1
                               elsif points_difference == -1
                                 @player2Name
                               end
-      return advantage(player_with_advantage) if (@p1points >= 4 || @p2points >= 4) && points_difference.abs == 1
+      return advantage(player_with_advantage) if advantage?
 
-      return "Win for #{@player1Name}" if points_difference >= 2
-      return "Win for #{@player2Name}"
+      player_with_win = if points_difference >= 2
+                          win(@player1Name)
+                        else
+                          win(@player2Name)
+                        end
+      return player_with_win
     else
       return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
     end
@@ -53,6 +57,14 @@ class TennisGame1
 
   def advantage(player_name)
     "Advantage #{player_name}"
+  end
+
+  def advantage?
+    (@p1points >= 4 || @p2points >= 4) && (@p1points - @p2points).abs == 1
+  end
+
+  def win(player_name)
+    "Win for #{player_name}"
   end
 end
 
