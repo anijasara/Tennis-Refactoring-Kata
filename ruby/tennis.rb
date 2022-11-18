@@ -38,7 +38,7 @@ class TennisGame1
                         else
                           @player2Name
                         end
-      return win(player_with_win)
+      return win(player_with_win) if win?
     else
       return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
     end
@@ -61,6 +61,10 @@ class TennisGame1
 
   def advantage?
     (@p1points >= 4 || @p2points >= 4) && (@p1points - @p2points).abs == 1
+  end
+
+  def win?
+    (@p1points >= 4 || @p2points >= 4) && (@p1points - @p2points).abs >= 2
   end
 
   def win(player_name)
