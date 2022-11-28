@@ -25,27 +25,24 @@ class TennisGame1
           2 => "Thirty-All",
       }.fetch(@p1points, "Deuce")
       return result
-    elsif @p1points >= 4 || @p2points >= 4
-      if advantage?
-        player_with_advantage = if points_difference == 1
-                                  @player1Name
-                                elsif points_difference == -1
-                                  @player2Name
-                                end
-        return advantage(player_with_advantage)
-      end
-
-      if win?
-        player_with_win = if points_difference >= 2
-                            @player1Name
-                          else
-                            @player2Name
-                          end
-        return win(player_with_win)
-      end
-    else
-      return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
     end
+    if advantage?
+      player_with_advantage = if points_difference == 1
+                                @player1Name
+                              elsif points_difference == -1
+                                @player2Name
+                              end
+      return advantage(player_with_advantage)
+    elsif win?
+      player_with_win = if points_difference >= 2
+                          @player1Name
+                        else
+                          @player2Name
+                        end
+      return win(player_with_win)
+    end
+
+    return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
   end
 
   private
