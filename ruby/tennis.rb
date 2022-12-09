@@ -17,7 +17,6 @@ class TennisGame1
   end
 
   def score
-    points_difference = @p1points - @p2points
     if points_difference == 0
       result = {
           0 => "Love-All",
@@ -36,8 +35,10 @@ class TennisGame1
 
   private
 
+  def points_difference
+    @p1points - @p2points
+  end
   def winning_player
-    points_difference = @p1points - @p2points
     if points_difference >= 2
       @player1Name
     else
@@ -46,7 +47,6 @@ class TennisGame1
   end
 
   def player_with_advantage
-    points_difference = @p1points - @p2points
     if points_difference == 1
       @player1Name
     elsif points_difference == -1
