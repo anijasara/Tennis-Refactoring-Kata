@@ -1,4 +1,10 @@
 
+class Player
+  def initialize(name)
+    @name = name
+    @points = 0
+  end
+end
 class TennisGame1
 
   def initialize(player1Name, player2Name)
@@ -6,6 +12,8 @@ class TennisGame1
     @player2Name = player2Name
     @p1points = 0
     @p2points = 0
+    @player1 = Player.new(player1Name)
+    @player2 = Player.new(player2Name)
   end
 
   def won_point(playerName)
