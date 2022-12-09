@@ -5,6 +5,10 @@ class Player
     @name = name
     @points = 0
   end
+
+  def won_point
+    @points += 1
+  end
 end
 class TennisGame1
 
@@ -20,8 +24,10 @@ class TennisGame1
   def won_point(playerName)
     if playerName == "player1"
       @p1points += 1
+      @player1.won_point
     else
       @p2points += 1
+      @player2.won_point
     end
   end
 
