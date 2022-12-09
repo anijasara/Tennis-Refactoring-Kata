@@ -17,16 +17,12 @@ class TennisGame1
     @player2 = Player.new(player2Name)
     @player1Name = @player1.name
     @player2Name = @player2.name
-    @p1points = @player1.points
-    @p2points = @player2.points
   end
 
   def won_point(playerName)
     if playerName == "player1"
-      @p1points += 1
       @player1.won_point
     else
-      @p2points += 1
       @player2.won_point
     end
   end
@@ -37,7 +33,7 @@ class TennisGame1
           0 => "Love-All",
           1 => "Fifteen-All",
           2 => "Thirty-All",
-      }.fetch(@p1points, "Deuce")
+      }.fetch(@player1.points, "Deuce")
       return result
     end
 
@@ -45,7 +41,7 @@ class TennisGame1
 
     return win(winning_player) if win?
 
-    return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
+    return from_points_to_score(@player1.points) + "-" + from_points_to_score(@player2.points)
   end
 
   private
@@ -83,11 +79,11 @@ class TennisGame1
   end
 
   def advantage?
-    (@p1points >= 4 || @p2points >= 4) && (@p1points - @p2points).abs == 1
+    (@player1.points >= 4 || @player2.points >= 4) && (points_difference).abs == 1
   end
 
   def win?
-    (@p1points >= 4 || @p2points >= 4) && (@p1points - @p2points).abs >= 2
+    (@player1.points >= 4 || @player2.points >= 4) && (points_difference).abs >= 2
   end
 
   def win(player_name)
