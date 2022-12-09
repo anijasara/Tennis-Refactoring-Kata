@@ -15,8 +15,6 @@ class TennisGame1
   def initialize(player1Name, player2Name)
     @player1 = Player.new(player1Name)
     @player2 = Player.new(player2Name)
-    @player1Name = @player1.name
-    @player2Name = @player2.name
   end
 
   def won_point(playerName)
@@ -51,17 +49,17 @@ class TennisGame1
   end
   def winning_player
     if points_difference >= 2
-      @player1Name
+      @player1.name
     else
-      @player2Name
+      @player2.name
     end
   end
 
   def player_with_advantage
     if points_difference == 1
-      @player1Name
+      @player1.name
     elsif points_difference == -1
-      @player2Name
+      @player2.name
     end
   end
 
