@@ -27,16 +27,17 @@ class TennisGame1
       return result
     end
 
-    return advantage(player_with_advantage(points_difference)) if advantage?
+    return advantage(player_with_advantage) if advantage?
 
-    return win(winning_player(points_difference)) if win?
+    return win(winning_player) if win?
 
     return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
   end
 
   private
 
-  def winning_player(points_difference)
+  def winning_player
+    points_difference = @p1points - @p2points
     if points_difference >= 2
       @player1Name
     else
@@ -44,7 +45,8 @@ class TennisGame1
     end
   end
 
-  def player_with_advantage(points_difference)
+  def player_with_advantage
+    points_difference = @p1points - @p2points
     if points_difference == 1
       @player1Name
     elsif points_difference == -1
