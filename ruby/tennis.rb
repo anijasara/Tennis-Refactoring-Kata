@@ -51,7 +51,7 @@ class TennisGame1
   private
 
   def points_difference
-    @p1points - @p2points
+    @player1.points - @player2.points
   end
   def winning_player
     if points_difference >= 2
