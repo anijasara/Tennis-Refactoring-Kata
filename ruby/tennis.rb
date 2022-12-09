@@ -26,11 +26,10 @@ class TennisGame1
       }.fetch(@p1points, "Deuce")
       return result
     end
-    if advantage?
-      return advantage(player_with_advantage(points_difference))
-    elsif win?
-      return win(winning_player(points_difference))
-    end
+
+    return advantage(player_with_advantage(points_difference)) if advantage?
+
+    return win(winning_player(points_difference)) if win?
 
     return from_points_to_score(@p1points) + "-" + from_points_to_score(@p2points)
   end
